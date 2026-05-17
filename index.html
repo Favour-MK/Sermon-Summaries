@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therefore, Stand — Sermon Summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --parchment: #f7f2ea;
+    --gold: #b8892a;
+    --gold-light: #d4a94a;
+    --rust: #8b3a2a;
+    --cream: #ede8de;
+    --muted: #6b5f50;
+    --divider: #c9b89a;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+ 
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.5;
+  }
+ 
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+ 
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 52px;
+    position: relative;
+  }
+ 
+  .header::after {
+    content: '✦';
+    display: block;
+    font-size: 18px;
+    color: var(--gold);
+    margin-top: -12px;
+    background: var(--parchment);
+    width: 36px;
+    margin-inline: auto;
+    position: relative;
+    top: 1px;
+  }
+ 
+  .church-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+ 
+  .sermon-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+ 
+  .sermon-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+ 
+  .sermon-ref {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+ 
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+ 
+  .meta-row span { display: flex; align-items: center; gap: 6px; }
+  .meta-row span::before { content: '—'; color: var(--gold); }
+ 
+  /* ── Overview Box ── */
+  .overview {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin-bottom: 56px;
+    border-radius: 0 4px 4px 0;
+  }
+ 
+  .overview-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+ 
+  .overview p {
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+ 
+  /* ── Three Questions Framework ── */
+  .framework {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--divider);
+    margin-bottom: 56px;
+    border: 1px solid var(--divider);
+  }
+ 
+  .framework-item {
+    background: var(--parchment);
+    padding: 24px 20px;
+    text-align: center;
+  }
+ 
+  .framework-q {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+ 
+  .framework-a {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+ 
+  .framework-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+    display: block;
+  }
+ 
+  /* ── Section ── */
+  .section {
+    margin-bottom: 52px;
+  }
+ 
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+ 
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+ 
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 8px;
+    flex: 1;
+  }
+ 
+  .section p {
+    color: #2e2820;
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+ 
+  /* ── Scripture Pull ── */
+  .scripture {
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    padding: 20px 28px;
+    margin: 24px 0;
+    text-align: center;
+    position: relative;
+  }
+ 
+  .scripture::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--gold);
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    line-height: 1;
+  }
+ 
+  .scripture p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0 0 8px;
+    position: relative;
+    z-index: 1;
+  }
+ 
+  .scripture cite {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+ 
+  /* ── Armor Grid ── */
+  .armor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 24px 0;
+  }
+ 
+  .armor-item {
+    border: 1px solid var(--divider);
+    padding: 18px 18px 16px;
+    background: var(--parchment);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .armor-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+ 
+  .armor-item.offensive::before {
+    background: var(--rust);
+  }
+ 
+  .armor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+ 
+  .armor-tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+ 
+  .armor-item.offensive .armor-tag { color: var(--rust); }
+ 
+  .armor-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+ 
+  /* ── Key Insight ── */
+  .key-insight {
+    background: var(--ink);
+    color: var(--parchment);
+    padding: 28px 32px;
+    margin: 28px 0;
+    border-radius: 2px;
+  }
+ 
+  .key-insight p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--parchment) !important;
+    margin: 0;
+  }
+ 
+  .key-insight p em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+ 
+  /* ── Divider ornament ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 12px;
+    margin: 40px 0;
+    opacity: 0.5;
+  }
+ 
+  /* ── Call to Action ── */
+  .call-section {
+    background: var(--cream);
+    border: 1px solid var(--divider);
+    padding: 36px 36px;
+    margin-top: 52px;
+    text-align: center;
+  }
+ 
+  .call-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+ 
+  .call-section p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+ 
+  /* ── Footer ── */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--divider);
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+ 
+  @media (max-width: 580px) {
+    .page { padding: 40px 22px 80px; }
+    .armor-grid { grid-template-columns: 1fr; }
+    .framework { grid-template-columns: 1fr; }
+    .meta-row { flex-direction: column; align-items: center; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+ 
+  <!-- Header -->
+  <header class="header">
+    <p class="church-label">Nairobi Baptist Church &nbsp;·&nbsp; Sermon Summary</p>
+    <h1 class="sermon-title">Therefore, <em>Stand</em></h1>
+    <p class="sermon-ref">Ephesians 6:10–18</p>
+    <div class="meta-row">
+      <span>Pst. Obiero</span>
+      <span>Spiritual Warfare</span>
+      <span>The Armor of God</span>
+    </div>
+  </header>
+ 
+  <!-- Overview -->
+  <div class="overview">
+    <p class="overview-label">Sermon Overview</p>
+    <p>Drawing from Paul's closing charge in Ephesians, the preacher calls believers to recognise that the Christian life is an active spiritual fight — not against people, but against unseen forces. The aim is not to advance, but to <em>hold your ground</em>: to stand firm in the strength God provides, equipped with His full armor, sustained by unceasing prayer.</p>
+  </div>
+ 
+  <!-- Three Questions Framework -->
+  <div class="framework">
+    <div class="framework-item">
+      <span class="framework-icon">📣</span>
+      <p class="framework-q">The Call — What?</p>
+      <p class="framework-a">Be strong in the Lord</p>
+    </div>
+    <div class="framework-item">
+      <span class="framework-icon">⚔️</span>
+      <p class="framework-q">The Reason — Why?</p>
+      <p class="framework-a">We do not wrestle against flesh and blood</p>
+    </div>
+    <div class="framework-item">
+      <span class="framework-icon">🛡️</span>
+      <p class="framework-q">The Means — How?</p>
+      <p class="framework-a">Put on the full armor of God</p>
+    </div>
+  </div>
+ 
+  <!-- Section 1: Church Context -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">i.</span>
+      <h2 class="section-title">Church Context &amp; Introduction</h2>
+    </div>
+    <p>Before the sermon, the preacher offered the congregation a brief orientation to Nairobi Baptist Church. As a <strong>non-denominational, member-led church</strong>, decisions rest with registered members who elect elders — elders who in turn oversee the pastoral team. An announcement was made that a <em>Call Committee</em> has been formed to recommend a new Senior Pastor following the previous pastor's resignation.</p>
+ 
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 2: The Fight -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">ii.</span>
+      <h2 class="section-title">The Reality of Spiritual Warfare</h2>
+    </div>
+    <p>The preacher opened with a vivid personal story: a schoolyard fight over a coin-flipping game. Though he believed himself the better fighter, one mistimed duck resulted in a blow to his eye that left him unable to see for two weeks. The moral: <strong>knowing your opponent matters</strong>. You can't fight effectively if you don't know you're in a fight, or if you underestimate who you're fighting.</p>
+ 
+    <div class="key-insight">
+      <p>"If we are not aware, number one, of the fight, and number two, of the enemy — then we cannot properly engage. We might think we are better fighters. But if you are not fully prepared, you thought you had ducked, but <em>kumbe</em> he had prepared a left hook that blinds you."</p>
+    </div>
+ 
+    <p>Paul wrote Ephesians from a prison cell. The book breaks neatly in two: chapters 1–3 declare the gospel (God's plan to unite Jews and Gentiles in Christ), and chapters 4–6 apply the gospel (how transformed people live). Chapter 6 verse 10 — "Finally, be strong in the Lord" — is the capstone: all the relational instructions about marriage, family, and work that came before only succeed when rooted in God's strength.</p>
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 3: The Call -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">iii.</span>
+      <h2 class="section-title">The Call — Be Strong in the Lord</h2>
+    </div>
+ 
+    <div class="scripture">
+      <p>"Finally, be strong in the Lord and in the strength of his might."</p>
+      <cite>Ephesians 6:10</cite>
+    </div>
+ 
+    <p>Paul's call is not to self-improvement dressed in religious language. The foundation of Christian life is <strong>dependence on God</strong>, not personal willpower or religious performance. The preacher challenged the instinct to be strong on one's own terms, framing Christianity as a gift-religion — where even the ability to stand firm comes from God himself.</p>
+    <p>This strength must precede the armor. Before anything else, the believer must be rooted in the conviction that what God provides is sufficient to withstand whatever the enemy sends.</p>
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 4: The Enemy -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">iv.</span>
+      <h2 class="section-title">The Reason — Not Flesh and Blood</h2>
+    </div>
+ 
+    <div class="scripture">
+      <p>"For we do not wrestle against flesh and blood, but against the rulers, against the authorities, against the cosmic powers over this present darkness, against the spiritual forces of evil in the heavenly places."</p>
+      <cite>Ephesians 6:12</cite>
+    </div>
+ 
+    <p>Paul identifies two dimensions of spiritual opposition:</p>
+ 
+    <p><strong>1. Rulers, authorities, and cosmic powers of this present darkness</strong> — These are not merely human institutions, but spiritual forces behind ideologies, systems, and cultural narratives that position themselves against the knowledge of Christ. The preacher pointed to social media, competing worldviews, and counter-Christian cultural currents as visible expressions of this invisible war. Paul's vision of marriage in chapter 5 — mutual submission under Christ's lordship — was itself countercultural against the Roman system of domination. Following Jesus has always required going against the grain of the age.</p>
+ 
+    <p><strong>2. Spiritual forces of evil in the heavenly places</strong> — These operate on the individual believer: whispered accusations ("you are beyond forgiveness"), precisely-timed temptations, and doubts about God's goodness ("Did God really say…?"). The preacher drew on the story of Job: declared righteous, yet tormented. Being saved does not make you exempt from the enemy's attention — it may intensify it.</p>
+ 
+    <div class="key-insight">
+      <p>"When we have a discussion with someone about a religious view, we're not just having a discussion with this individual. Whatever we're engaging in is a <em>spiritual fight</em> — so we need spiritual help."</p>
+    </div>
+ 
+    <p><em>Important caveat:</em> Not every hardship is demonic. Sometimes you're broke because you managed money poorly. Discernment is needed — but awareness is essential.</p>
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 5: The Armor -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">v.</span>
+      <h2 class="section-title">The Means — The Full Armor of God</h2>
+    </div>
+    <p>Paul commands the <em>full</em> armor — not partial. A soldier going to war doesn't just bring his helmet. Each piece is purposeful, and together they form a complete defence (and one key offence):</p>
+ 
+    <div class="armor-grid">
+      <div class="armor-item">
+        <span class="armor-tag">Defensive</span>
+        <p class="armor-name">🪢 Belt of Truth</p>
+        <p class="armor-desc">Holds everything in place. Without truth, no other piece works correctly. Knowing who God is and what He says guards against the enemy's primary weapon: deception.</p>
+      </div>
+      <div class="armor-item">
+        <span class="armor-tag">Defensive</span>
+        <p class="armor-name">🧣 Breastplate of Righteousness</p>
+        <p class="armor-desc">Protects the heart. Dual meaning: the righteousness God imputes through Christ, and the integrity the believer walks in. Together, they silence the enemy's accusations.</p>
+      </div>
+      <div class="armor-item">
+        <span class="armor-tag">Defensive</span>
+        <p class="armor-name">👟 Gospel of Peace (Shoes)</p>
+        <p class="armor-desc">Readiness and traction. Knowing the gospel keeps the believer sure-footed — able to stand firm and ready to share. The gospel is not a fragile foundation; it is power (Rom. 1:16).</p>
+      </div>
+      <div class="armor-item">
+        <span class="armor-tag">Defensive</span>
+        <p class="armor-name">🛡️ Shield of Faith</p>
+        <p class="armor-desc">Extinguishes fiery darts — accusations, temptations, lies — that are designed not merely to wound but to burn from within. Faith in what God says silences what the enemy whispers.</p>
+      </div>
+      <div class="armor-item">
+        <span class="armor-tag">Defensive</span>
+        <p class="armor-name">⛑️ Helmet of Salvation</p>
+        <p class="armor-desc">Protects the mind. Standing firm in the finished work of Christ guards thought-life from the ideological influence of the world and the whispers of the enemy.</p>
+      </div>
+      <div class="armor-item offensive">
+        <span class="armor-tag">Offensive</span>
+        <p class="armor-name">⚔️ Sword of the Spirit</p>
+        <p class="armor-desc">The Word of God — the only offensive weapon. As Jesus answered every temptation with Scripture, believers engage culture and the enemy not with their own ideas but with God's Word.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 6: Prayer -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">vi.</span>
+      <h2 class="section-title">The Posture — Unceasing Prayer</h2>
+    </div>
+ 
+    <div class="scripture">
+      <p>"Praying at all times in the Spirit, with all prayer and supplication… with all perseverance, making supplication for all the saints."</p>
+      <cite>Ephesians 6:18</cite>
+    </div>
+ 
+    <p>The preacher noticed a key distinction: the armor is <em>put on</em> — taken up by the believer. Prayer is <em>given out</em> — offered to God. This is the posture that ties everything together, returning the believer to the opening premise: <strong>be strong in the Lord's strength, not your own.</strong></p>
+    <p>Notice the totality of Paul's language: <em>all</em> times, <em>all</em> prayers, <em>all</em> perseverance, <em>all</em> the saints. Prayer is not occasional crisis management — it is the constant posture of a person who knows the war they're in and who their Commander is.</p>
+ 
+    <div class="key-insight">
+      <p>"The only one who has won this war, and who is able to win this war for us, is God. So we need to be <em>totally reliant on Him</em>."</p>
+    </div>
+  </div>
+ 
+  <div class="ornament">· · ·</div>
+ 
+  <!-- Section 7: Stand -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">vii.</span>
+      <h2 class="section-title">Therefore, Stand</h2>
+    </div>
+    <p>The repeated command in the passage is not "advance" or "conquer" — it is <strong>stand</strong>. In spiritual warfare, maintaining your position is the victory. What the enemy is after is not your wealth or your health, but <em>your position</em> — your identity and faith in Christ.</p>
+    <p>This "standing" may look like:</p>
+    <ul style="margin: 12px 0 18px 24px; color: #2e2820; font-size: 16px; line-height: 1.9;">
+      <li>Refusing to lie, bribe, or cheat when pressured to do so</li>
+      <li>Holding to purity when culture says everyone is doing otherwise</li>
+      <li>Resisting the enemy's late-night whispers: <em>you are unlovable, unforgiven, abandoned</em></li>
+      <li>Trusting God's goodness when circumstances shout the opposite</li>
+    </ul>
+    <p>The three Hebrew boys stood firm before the furnace knowing who their God was. Believers are called to the same. Most powerfully: <strong>Jesus stood firm on the cross</strong>. He could have removed himself from the pain and shame, but He stood — for us, securing our position before God. Because He stood, we can.</p>
+ 
+    <div class="key-insight">
+      <p>"Nothing that the enemy brings will ever be devastating enough to throw us off guard — because we have a God who died and resurrected, and is seated at the right hand of the Father, <em>always interceding for the saints</em>."</p>
+    </div>
+  </div>
+ 
+  <!-- Call to Action -->
+  <div class="call-section">
+    <h3>The Invitation</h3>
+    <p>The sermon closed with a call to respond: for those yet to trust in Jesus, to call on His name and be saved (Rom. 10:13). For believers who have stumbled — to return, be renewed, and stand firm again in the grace that never runs dry.</p>
+  </div>
+ 
+  <footer class="footer">
+    <p>Nairobi Baptist Church &nbsp;·&nbsp; Sermon: "Therefore, Stand" &nbsp;·&nbsp; Pst. Obiero &nbsp;·&nbsp; Ephesians 6:10–18</p>
+  </footer>
+ 
+</div>
+</body>
+</html>
